@@ -31,7 +31,7 @@ export function CartSummary({ products }) {
       <FullWidthButton isBlack={true}>Do kasy</FullWidthButton>
       <div className={styles.deliveryInfo}>
         <img src={CAR_ICON} alt="Car icon" />
-        <p>Darmowa dostawa od 500zł</p>
+        <p>Darmowa dostawa od 400zł</p>
       </div>
     </div>
   );
