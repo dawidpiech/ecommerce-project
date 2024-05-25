@@ -1,8 +1,8 @@
-import styles from "./FavoriteList.module.css";
+import styles from "./FavouritesList.module.css";
 import { CenteredContent } from "../CenteredContent/CenteredContent";
 import { FavoriteProduct } from "../FavoriteProduct/FavoriteProduct";
 
-export function FavoriteList({ products }) {
+export function FavouritesList({ products }) {
   return (
     <CenteredContent>
       <div className={styles.favoritesList}>

@@ -1,8 +1,6 @@
-import { Layout } from "../Layout/Layout";
-import { CartProductList } from "../CartProductList/CartProductList";
-import { FlexContainer } from "../FlexContainer/FlexContainer";
-import { CartSummary } from "../CartSummary/CartSummary";
-
+import { CartProductsList } from "../../components/CartProductsList/CartProductsList";
+import { CartSummary } from "../../components/CartSummary/CartSummary";
+import { FlexContainer } from "../../components/FlexContainer/FlexContainer";
 export function Cart() {
   const cartProducts = [
     {
@@ -44,13 +42,10 @@ export function Cart() {
         "Nemo et nam quasi in suscipit earum odit laborum repellat quo dolore rem, sequi eaque sapiente quibu",
     },
   ];
-
   return (
-    <Layout>
-      <FlexContainer>
-        <CartProductList products={cartProducts}></CartProductList>
-        <CartSummary products={cartProducts}></CartSummary>
-      </FlexContainer>
-    </Layout>
+    <FlexContainer>
+      <CartProductsList products={cartProducts} />
+      <CartSummary products={cartProducts} />
+    </FlexContainer>
   );
 }
