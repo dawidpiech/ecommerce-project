@@ -3,6 +3,7 @@ import "./styles/globals.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+<<<<<<< HEAD
 import { Cart } from "./views/Cart/Cart";
 import { Favourites } from "./views/Favourites/Favourites";
 import { Layout } from "./components/Layout/Layout";
@@ -28,6 +29,14 @@ const router = createBrowserRouter([
         loader: mainPageLoader,
       },
     ],
+=======
+import { ProductDetails } from "./views/ProductDetails/ProductDetails.jsx";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <ProductDetails />,
+>>>>>>> 5355df14c1bd1d06b317bd48e4e1ea679f6f0bc3
   },
 ]);
 
