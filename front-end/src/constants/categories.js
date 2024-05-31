@@ -77,7 +77,7 @@ export const CATEGORIES = [
         path: "narty",
       },
       {
-        categoryName: "Pływane",
+        categoryName: "Pływanie",
         path: "plywanie",
       },
     ],

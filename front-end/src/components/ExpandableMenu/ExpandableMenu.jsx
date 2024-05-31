@@ -1,35 +1,29 @@
-<<<<<<< HEAD
 import styles from "./ExpandableMenu.module.css";
 import { CATEGORIES } from "../../constants/categories";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import ARROW_ICON from "../../assets/arrow.svg";
-export function ExpandableMenu() {
-  const activePath = "odziez";
-=======
-import { CATEGORIES } from "../../constants/categories";
-import { NavLink } from "react-router-dom";
-import ARROW_ICON from "../../assets/arrow.svg";
-import styles from "./ExpandableMenu.module.css";
+
+const PATH_TO_GENDER_NAME = {
+  kobieta: "Kobieta",
+  mezczyzna: "Mężczyzna",
+  dziecko: "Dziecko",
+};
 
 export function ExpandableMenu() {
-  const activePath = "odziez";
+  const params = useParams();
 
->>>>>>> 5355df14c1bd1d06b317bd48e4e1ea679f6f0bc3
+  const activePath = params.category;
   return (
     <div className={styles.expandableMenu}>
-      <p>Kobieta</p>
+      <p>{PATH_TO_GENDER_NAME[params.gender]}</p>
       <ul>
         {CATEGORIES.map((category) => {
           return (
             <li key={category.path}>
-              <NavLink to={category.path}>
+              <NavLink to={`/${params.gender}/${category.path}`}>
                 {category.categoryName}{" "}
                 <img
                   src={ARROW_ICON}
-<<<<<<< HEAD
-=======
-                  alt="Arrow icon"
->>>>>>> 5355df14c1bd1d06b317bd48e4e1ea679f6f0bc3
                   className={
                     activePath === category.path ? styles.expanded : ""
                   }
@@ -40,7 +34,9 @@ export function ExpandableMenu() {
                   {category.subcategories.map((subcategory) => {
                     return (
                       <li key={subcategory.path}>
-                        <NavLink to={subcategory.path}>
+                        <NavLink
+                          to={`/${params.gender}/${params.category}/${subcategory.path}`}
+                        >
                           {subcategory.categoryName}
                         </NavLink>
                       </li>

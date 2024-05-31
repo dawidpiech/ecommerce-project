@@ -7,7 +7,9 @@ import { Cart } from "./views/Cart/Cart";
 import { Favourites } from "./views/Favourites/Favourites";
 import { Layout } from "./components/Layout/Layout";
 import { MainPage } from "./views/MainPage/MainPage";
+import { ProductsList } from "./views/ProductList/ProductList";
 import { mainPageLoader } from "./api/mainPageLoader";
+import { productListLoader } from "./api/productListLoader";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +29,16 @@ const router = createBrowserRouter([
         element: <MainPage />,
         loader: mainPageLoader,
       },
+      {
+        path: "/:gender/:category/:subcategory?",
+        element: <ProductsList />,
+        loader: productListLoader,
+      },
     ],
+  },
+  {
+    path: "test",
+    element: <Layout />,
   },
 ]);
 
