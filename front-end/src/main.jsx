@@ -7,11 +7,24 @@ import { Cart } from "./views/Cart/Cart";
 import { Favourites } from "./views/Favourites/Favourites";
 import { Layout } from "./components/Layout/Layout";
 import { MainPage } from "./views/MainPage/MainPage";
-import { ProductsList } from "./views/ProductList/ProductList";
+import { ProductsList } from "./views/ProductsList/ProductsList";
+import { ProductDetails } from "./views/ProductDetails/ProductDetails";
 import { mainPageLoader } from "./api/mainPageLoader";
 import { productListLoader } from "./api/productListLoader";
+import { productLoader } from "./api/productLoader";
+import { addProductToFavourites } from "./api/addProductToFavouritesAction";
+import { favouritesLoader } from "./api/favouritesLoader";
+import { deleteFavouriteAction } from "./api/deleteFavouriteAction";
 
 const router = createBrowserRouter([
+  {
+    path: "/add-to-favourites/:productId",
+    action: addProductToFavourites,
+  },
+  {
+    path: "/delete-from-favourites/:favouriteId",
+    action: deleteFavouriteAction,
+  },
   {
     path: "",
     element: <Layout />,
@@ -23,6 +36,7 @@ const router = createBrowserRouter([
       {
         path: "/ulubione",
         element: <Favourites />,
+        loader: favouritesLoader,
       },
       {
         path: "/:gender?",
@@ -34,11 +48,12 @@ const router = createBrowserRouter([
         element: <ProductsList />,
         loader: productListLoader,
       },
+      {
+        path: "/:gender/:category/:subcategory/:productId",
+        element: <ProductDetails />,
+        loader: productLoader,
+      },
     ],
-  },
-  {
-    path: "test",
-    element: <Layout />,
   },
 ]);
 
