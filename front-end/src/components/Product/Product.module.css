@@ -2,6 +2,10 @@
   position: relative;
 }
 
+.product button {
+  border: none;
+}
+
 .product img {
   width: 250px;
   height: 400px;
@@ -26,7 +30,7 @@
   height: 1.5rem;
 
   background-image: url("../../assets/heart.svg");
-  transition: 0.3s;
+  background-repeat: none;
 }
 
 .heart:hover {

@@ -1,8 +1,13 @@
-import styles from "./CartProduct.module.css";
+import styles from "./FavouriteProduct.module.css";
 import REMOVE_ICON from "../../assets/remove.svg";
+import BAG_ICON from "../../assets/bag.svg";
+import { useFetcher } from "react-router-dom";
 import { Price } from "../Price/Price";
 
-export function CartProduct({ product }) {
+export function FavouriteProduct({ favourite }) {
+  const product = favourite.product;
+  const { Form } = useFetcher();
+
   const price = <Price product={product} />;
 
   return (
@@ -20,9 +25,18 @@ export function CartProduct({ product }) {
           {price}
         </p>
         <div className={styles.buttonRow}>
+          <Form
+            action={`/delete-from-favourites/${favourite.id}`}
+            method="DELETE"
+          >
+            <button>
+              <img src={REMOVE_ICON} />
+              Usuń
+            </button>
+          </Form>
           <button>
-            <img src={REMOVE_ICON} />
-            Usuń
+            <img src={BAG_ICON} />
+            Dodaj do koszyka
           </button>
         </div>
       </div>
