@@ -1,5 +1,4 @@
 import styles from "./FavouritesList.module.css";
-
 import { CenteredContent } from "../CenteredContent/CenteredContent";
 import { FavouriteProduct } from "../FavouriteProduct/FavouriteProduct";
 

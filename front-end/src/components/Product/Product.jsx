@@ -1,6 +1,5 @@
 import styles from "./Product.module.css";
 import { Link, useFetcher } from "react-router-dom";
-import { Price } from "../Price/Price";
 
 const ENDPOINT_TO_PATH_MAPPING = {
   men: "mezczyzna",
@@ -19,9 +18,7 @@ export function Product({ product }) {
     >
       <img src={product.photos[0]} />
       <h3>{product.productName}</h3>
-      <p>
-        <Price product={product} />
-      </p>
+      <p>{product.pricePLN}zł</p>
       <Form
         onClick={(e) => {
           e.stopPropagation();
